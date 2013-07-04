@@ -1,0 +1,6 @@
+[submodule "kerberos-library"]
+	path = kerberos-library
+	url = https://github.com/cqcallaw/kerberos-android
+[submodule "kerberos-gssapi"]
+	path = kerberos-gssapi
+	url = https://github.com/cqcallaw/kerberos-java-gssapi
