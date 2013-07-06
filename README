@@ -4,7 +4,7 @@ This project illustrates an intended consumption pattern of the Kerberos
 Android app available from https://github.com/cqcallaw/kerberos-app
 
 In particular, the project illustrates how to use content (credentials cache
-and configuration) provided by the Kerberos app.
+and configuration) provided by a Kerberos content provider.
 
 ===============================================================================
 REQUIREMENTS
@@ -19,7 +19,9 @@ SDK:  http://developer.android.com/sdk/index.html
 NDK:  http://developer.android.com/sdk/ndk/index.html
 Emulator: https://developer.android.com/guide/developing/tools/emulator.html
 
-An operational Kerberos realm must also be present.
+An operational Kerberos realm and a provider of a Kerberos credentials cache
+and configuration (e.g. https://github.com/cqcallaw/kerberos-app) must also be 
+present.
 
 ===============================================================================
 BUILDING
@@ -60,6 +62,9 @@ may also be necessary to modify the path to the keytab in the bcsLogin.conf file
 
 The sample server typically requires root privileges.
 
-Once the sample server is running and listening for connections, the sample 
-client can run. The display window will show a trace of the interaction with 
-the server.
+Once the sample server is running, a credentials cache must be obtained. This
+is typically done by running the kinit operation of the Kerberos app.
+
+Once the sample server is running and listening for connections and the content
+provider has obtained a credentials cache, the sample client can run. The 
+display window will show a trace of the interaction with the server.
