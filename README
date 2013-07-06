@@ -1,0 +1,65 @@
+A Sample GSSAPI Client
+
+This project illustrates an intended consumption pattern of the Kerberos 
+Android app available from https://github.com/cqcallaw/kerberos-app
+
+In particular, the project illustrates how to use content (credentials cache
+and configuration) provided by the Kerberos app.
+
+===============================================================================
+REQUIREMENTS
+
+Before building or installing this package, you must have the Android SDK
+and NDK installed and set up on your system. It is also helpful to have the
+Android Emulator set up and configured with an Android platform greater
+than or equal to version 2.3.3 (Gingerbread). For details on downloading and 
+setting these up, please see the following links:
+
+SDK:  http://developer.android.com/sdk/index.html
+NDK:  http://developer.android.com/sdk/ndk/index.html
+Emulator: https://developer.android.com/guide/developing/tools/emulator.html
+
+An operational Kerberos realm must also be present.
+
+===============================================================================
+BUILDING
+
+To build the package:
+
+1) Update the Android project:
+
+	android update project -p . -s
+	
+2) Configure the NDK by setting the ndk.dir environment variable in 
+local.properties
+
+3) Initialize submodules:
+
+	git submodule init
+	git submodule update
+	
+4) Compile:
+
+	ant debug
+
+===============================================================================
+INSTALLING
+
+Install as you would any other Android app.
+
+===============================================================================
+RUNNING
+
+The included example server (derived from 
+http://download.java.net/jdk8/docs/technotes/guides/security/jgss/tutorials/SampleServer.java)
+can be configured and executed with the provided SampleServer.sh script. 
+
+At minimum, one must modify the -Djava.security.krb5.realm and -Djava.security.krb5.kdc
+arguments in the shell script, and the principal in the bcsLogin.conf file. It
+may also be necessary to modify the path to the keytab in the bcsLogin.conf file.
+
+The sample server typically requires root privileges.
+
+Once the sample server is running and listening for connections, the sample 
+client can run. The display window will show a trace of the interaction with 
+the server.
